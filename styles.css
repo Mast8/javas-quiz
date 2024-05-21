@@ -38,10 +38,6 @@ body.wrong {
   box-shadow: 0 0 10px 2px;
 }
 
-button {
-  cursor: pointer;
-}
-
 .btn-grid {
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -57,9 +53,12 @@ button {
   padding: 5px 10px;
   color: white;
   outline: none;
+  cursor: pointer;
 }
 
 .btn:hover {
+  background-color: white;
+  color: hsl(var(--hue), 100%, 50%);
   border-color: black;
 }
 

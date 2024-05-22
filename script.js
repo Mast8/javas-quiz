@@ -109,5 +109,14 @@ const questions = [
       { text: '6', correct: false },
       { text: '8', correct: true }
     ]
+  },
+  {
+    question: 'Who participated in the enigma code brake?',
+    answers: [
+      { text: 'Nikola Tesla', correct: false },
+      { text: 'Benjamin Franklin', correct: false },
+      { text: 'Alan Turing', correct: true }
+    ]
   }
+
 ]

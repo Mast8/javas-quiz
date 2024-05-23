@@ -62,6 +62,10 @@ body.wrong {
   border-color: black;
 }
 
+.btn:disabled {
+  cursor: no-drop;
+}
+
 .btn.correct {
   --hue: var(--hue-correct);
   color: black;

@@ -15,14 +15,14 @@ nextButton.addEventListener('click', () => {
 function startGame() {
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
-  currentQuestionIndex = 0
+  currentQuestionIndex = 1
   questionContainerElement.classList.remove('hide')
   setNextQuestion()
 }
 
 function setNextQuestion() {
-  resetState()
-  showQuestion(shuffledQuestions[currentQuestionIndex])
+  resetState();
+  showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
 
 function showQuestion(question) {
@@ -36,7 +36,9 @@ function showQuestion(question) {
     }
     button.addEventListener('click', selectAnswer)
     answerButtonsElement.appendChild(button)
+    
   })
+  showProgress();
 }
 
 function resetState() {
@@ -55,13 +57,26 @@ function selectAnswer(e) {
     setStatusClass(button, button.dataset.correct)
     button.disabled = true;
   })
+  
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    console.log(currentQuestionIndex);
     nextButton.classList.remove('hide')
   } else {
     startButton.innerText = 'Restart'
     startButton.classList.remove('hide')
   }
 }
+
+
+
+function showProgress() {
+  //currentQuestionIndex = currentQuestionIndex+1;
+  
+  let ProgressElement = document.getElementById("progress");
+  ProgressElement.innerHTML = 
+  `Question ${currentQuestionIndex} of ${questions.length}`;
+};
+
 
 function setStatusClass(element, correct) {
   clearStatusClass(element)

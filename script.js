@@ -26,8 +26,11 @@ function setNextQuestion() {
 }
 
 function showQuestion(question) {
-  questionElement.innerText = question.question
-  question.answers.forEach(answer => {
+  questionElement.innerText = question.question;
+  //sort answers in different orders
+  sortAnswers = question.answers.sort(() => Math.random() - .5);
+  sortAnswers.forEach(answer => {
+  //question.answers.forEach(answer => {
     const button = document.createElement('button')
     button.innerText = answer.text
     button.classList.add('btn')

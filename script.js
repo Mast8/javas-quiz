@@ -13,8 +13,9 @@ nextButton.addEventListener('click', () => {
 })
 
 function startGame() {
-  startButton.classList.add('hide')
-  shuffledQuestions = questions.sort(() => Math.random() - .5);
+  startButton.classList.add('hide');
+  shuffledQuestions = sorting(questions);
+  //shuffledQuestions = questions.sort(() => Math.random() - .5);
   currentQuestionIndex = 0;
   questionContainerElement.classList.remove('hide');
   setNextQuestion();
@@ -25,10 +26,15 @@ function setNextQuestion() {
   showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
 
+function sorting (question) {
+  return question.sort(() => Math.random() - .5);
+}
+
 function showQuestion(question) {
   questionElement.innerText = question.question;
   //sort answers in different orders
-  sortAnswers = question.answers.sort(() => Math.random() - .5);
+  sortAnswers = sorting(question.answers)
+  //sortAnswers = question.answers.sort(() => Math.random() - .5);
   sortAnswers.forEach(answer => {
   //question.answers.forEach(answer => {
     const button = document.createElement('button')

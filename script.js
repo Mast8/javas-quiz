@@ -14,8 +14,8 @@ nextButton.addEventListener('click', () => {
 
 function startGame() {
   startButton.classList.add('hide');
-  shuffledQuestions = sorting(questions);
-  //shuffledQuestions = questions.sort(() => Math.random() - .5);
+  shuffledQuestions = randomSorting(questions);
+  
   currentQuestionIndex = 0;
   questionContainerElement.classList.remove('hide');
   setNextQuestion();
@@ -26,15 +26,15 @@ function setNextQuestion() {
   showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
 
-function sorting (question) {
+function randomSorting(question) {
   return question.sort(() => Math.random() - .5);
 }
 
 function showQuestion(question) {
   questionElement.innerText = question.question;
   //sort answers in different orders
-  sortAnswers = sorting(question.answers)
-  //sortAnswers = question.answers.sort(() => Math.random() - .5);
+  sortAnswers = randomSorting(question.answers)
+  
   sortAnswers.forEach(answer => {
   //question.answers.forEach(answer => {
     const button = document.createElement('button')
@@ -79,8 +79,8 @@ function selectAnswer(e) {
 
 
 function showProgress() {
-  //currentQuestionIndex = currentQuestionIndex+1;
-   let index = currentQuestionIndex +1;
+  
+  let index = currentQuestionIndex +1;
   let ProgressElement = document.getElementById("progress");
   ProgressElement.innerHTML = 
   `Question ${index} of ${shuffledQuestions.length}`;

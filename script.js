@@ -8,8 +8,8 @@ let shuffledQuestions, currentQuestionIndex
 
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
-  currentQuestionIndex++
-  setNextQuestion()
+  currentQuestionIndex++ ;
+  setNextQuestion() ;
 })
 
 function startGame() {
@@ -17,13 +17,28 @@ function startGame() {
   shuffledQuestions = randomSorting(questions);
   
   currentQuestionIndex = 0;
+  score = 0;
   questionContainerElement.classList.remove('hide');
   setNextQuestion();
 }
+//show score
+function showScores() {
+  let quizEndHTML =
+      `
+  <h1>Quiz Completed</h1>
+  <h2 id='score'> Your scored: ${score} of ${questions.length}</h2>
+  <div class="quiz-repeat">
+      <a href="index.html">Take Quiz Again</a>
+  </div>
+  `;
+  let quizElement = document.getElementById("quiz");
+  quizElement.innerHTML = quizEndHTML;
+};
 
 function setNextQuestion() {
   resetState();
   showQuestion(shuffledQuestions[currentQuestionIndex]);
+  console.log(score + " score ");
 }
 
 function randomSorting(question) {
@@ -41,6 +56,7 @@ function showQuestion(question) {
     button.innerText = answer.text
     button.classList.add('btn')
     if (answer.correct) {
+     
       button.dataset.correct = answer.correct
     }
     button.addEventListener('click', selectAnswer)
@@ -59,20 +75,23 @@ function resetState() {
 }
 
 function selectAnswer(e) {
-  const selectedButton = e.target
-  const correct = selectedButton.dataset.correct
-  setStatusClass(document.body, correct)
+  const selectedButton = e.target;
+  const correct = selectedButton.dataset.correct;
+  if(correct){
+    score++;
+  }
+  //console.log(correct);
+  setStatusClass(document.body, correct);
   Array.from(answerButtonsElement.children).forEach(button => {
-    setStatusClass(button, button.dataset.correct)
+    setStatusClass(button, button.dataset.correct);
     button.disabled = true;
   })
-  console.log( shuffledQuestions.length + "curre " + currentQuestionIndex)
   
   if (shuffledQuestions.length > currentQuestionIndex +1) {
-    nextButton.classList.remove('hide')
+    nextButton.classList.remove('hide');
   } else {
-    startButton.innerText = 'Restart'
-    startButton.classList.remove('hide')
+    startButton.innerText = 'Restart';
+    startButton.classList.remove('hide');
   }
 }
 
@@ -90,9 +109,10 @@ function showProgress() {
 function setStatusClass(element, correct) {
   clearStatusClass(element)
   if (correct) {
-    element.classList.add('correct')
+   
+    element.classList.add('correct');
   } else {
-    element.classList.add('wrong')
+    element.classList.add('wrong');
   }
 }
 

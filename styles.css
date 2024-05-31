@@ -21,6 +21,12 @@ body {
   background-color: hsl(var(--hue), 100%, 20%);
 }
 
+.questionTrack {
+  
+  display: grid;
+  justify-content: right;
+} 
+
 body.correct {
   --hue: var(--hue-correct);
 }

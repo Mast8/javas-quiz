@@ -90,6 +90,7 @@ function selectAnswer(e) {
   if (shuffledQuestions.length > currentQuestionIndex +1) {
     nextButton.classList.remove('hide');
   } else {
+    showScores();
     startButton.innerText = 'Restart';
     startButton.classList.remove('hide');
   }

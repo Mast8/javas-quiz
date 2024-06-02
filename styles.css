@@ -21,6 +21,11 @@ body {
   background-color: hsl(var(--hue), 100%, 20%);
 }
 
+.question {
+  font-size: 20px;
+  
+}
+
 .questionTrack {
   
   display: grid;

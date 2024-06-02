@@ -2,11 +2,12 @@ const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
-const answerButtonsElement = document.getElementById('answer-buttons')
+const answerButtonsElement = document.getElementById('answer-buttons');
+let quizElement = document.getElementById("quiz");
 
 let shuffledQuestions, currentQuestionIndex
 
-startButton.addEventListener('click', startGame)
+//startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', () => {
   currentQuestionIndex++ ;
   setNextQuestion() ;
@@ -19,19 +20,22 @@ function startGame() {
   currentQuestionIndex = 0;
   score = 0;
   questionContainerElement.classList.remove('hide');
+  //clear score
+  quizElement.innerHTML = "";
   setNextQuestion();
 }
+
+
+
 //show score
 function showScores() {
   let quizEndHTML =
       `
   <h1>Quiz Completed</h1>
   <h2 id='score'> Your scored: ${score} of ${questions.length}</h2>
-  <div class="quiz-repeat">
-      <a href="index.html">Take Quiz Again</a>
-  </div>
+  
   `;
-  let quizElement = document.getElementById("quiz");
+  
   quizElement.innerHTML = quizEndHTML;
 };
 
@@ -48,29 +52,29 @@ function randomSorting(question) {
 function showQuestion(question) {
   questionElement.innerText = question.question;
   //sort answers in different orders
-  sortAnswers = randomSorting(question.answers)
+  sortAnswers = randomSorting(question.answers);
   
   sortAnswers.forEach(answer => {
   //question.answers.forEach(answer => {
-    const button = document.createElement('button')
-    button.innerText = answer.text
-    button.classList.add('btn')
+    const button = document.createElement('button');
+    button.innerText = answer.text;
+    button.classList.add('btn');
     if (answer.correct) {
      
-      button.dataset.correct = answer.correct
+      button.dataset.correct = answer.correct;
     }
-    button.addEventListener('click', selectAnswer)
-    answerButtonsElement.appendChild(button)
+    button.addEventListener('click', selectAnswer);
+    answerButtonsElement.appendChild(button);
     
   })
   showProgress();
 }
 
 function resetState() {
-  clearStatusClass(document.body)
-  nextButton.classList.add('hide')
+  clearStatusClass(document.body);
+  nextButton.classList.add('hide');
   while (answerButtonsElement.firstChild) {
-    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild);
   }
 }
 
@@ -108,7 +112,7 @@ function showProgress() {
 
 
 function setStatusClass(element, correct) {
-  clearStatusClass(element)
+  clearStatusClass(element);
   if (correct) {
    
     element.classList.add('correct');
@@ -118,8 +122,8 @@ function setStatusClass(element, correct) {
 }
 
 function clearStatusClass(element) {
-  element.classList.remove('correct')
-  element.classList.remove('wrong')
+  element.classList.remove('correct');
+  element.classList.remove('wrong');
 }
 
 const questions = [

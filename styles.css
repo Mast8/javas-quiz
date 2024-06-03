@@ -92,11 +92,17 @@ body.wrong {
   padding: 10px 20px;
 }
 
+.score {
+  text-align: center;
+}
+
 .controls {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
+
 
 .hide {
   display: none;

@@ -21,11 +21,13 @@ function startGame() {
   score = 0;
   questionContainerElement.classList.remove('hide');
   //clear score
-  quizElement.innerHTML = "";
+  resetElement(quizElement);
   setNextQuestion();
 }
 
-
+function resetElement(element) {
+  element.innerHTML = "";
+}
 
 //show score
 function showScores() {
@@ -35,14 +37,12 @@ function showScores() {
   <h2 id='score'> Your scored: ${score} of ${questions.length}</h2>
   
   `;
-  
   quizElement.innerHTML = quizEndHTML;
 };
 
 function setNextQuestion() {
   resetState();
   showQuestion(shuffledQuestions[currentQuestionIndex]);
-  console.log(score + " score ");
 }
 
 function randomSorting(question) {
@@ -60,7 +60,6 @@ function showQuestion(question) {
     button.innerText = answer.text;
     button.classList.add('btn');
     if (answer.correct) {
-     
       button.dataset.correct = answer.correct;
     }
     button.addEventListener('click', selectAnswer);
@@ -114,7 +113,6 @@ function showProgress() {
 function setStatusClass(element, correct) {
   clearStatusClass(element);
   if (correct) {
-   
     element.classList.add('correct');
   } else {
     element.classList.add('wrong');
@@ -128,7 +126,7 @@ function clearStatusClass(element) {
 
 const questions = [
   {
-    question: 'What is 2 + 2?',
+    question: 'What is the result of 2 + 2?',
     answers: [
       { text: '4', correct: true },
       { text: '22', correct: false },

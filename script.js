@@ -31,11 +31,12 @@ function resetElement(element) {
 
 //show score
 function showScores() {
+  let percentage = Math.round((score / questions.length) *100);
   let quizEndHTML =
       `
   <h1>Quiz Completed</h1>
   <h2 id='score'> Your scored: ${score} of ${questions.length}</h2>
-  
+  <h2 > ${percentage}%</h2>
   `;
   quizElement.innerHTML = quizEndHTML;
 };
@@ -80,6 +81,7 @@ function resetState() {
 function selectAnswer(e) {
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct;
+  //if correct increase score
   if(correct){
     score++;
   }
@@ -159,11 +161,20 @@ const questions = [
     ]
   },
   {
-    question: 'Who participated in the enigma code brake?',
+    question: 'Who participated in the enigma code cryptanalysis?',
     answers: [
       { text: 'Nikola Tesla', correct: false },
       { text: 'Benjamin Franklin', correct: false },
       { text: 'Alan Turing', correct: true }
+    ]
+  },
+  {
+    question: 'Which is a programming language?',
+    answers: [
+      { text: 'Javascript', correct: true },
+      { text: 'SQL', correct: true },
+      { text: 'React', correct: false },
+      { text: 'Unix', correct: false }
     ]
   }
 

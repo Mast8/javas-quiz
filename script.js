@@ -4,6 +4,7 @@ const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons');
 let quizElement = document.getElementById("quiz");
+const percentage = document.querySelector(".percentage");
 
 let shuffledQuestions, currentQuestionIndex
 
@@ -32,11 +33,13 @@ function resetElement(element) {
 //show score
 function showScores() {
   let percentage = Math.round((score / questions.length) *100);
+  let classPercentage = percentage > 50 ? percentage.className = "good" : percentage.className = "bad" ; 
   let quizEndHTML =
       `
   <h1>Quiz Completed</h1>
   <h2 id='score'> Your scored: ${score} of ${questions.length}</h2>
-  <h2 > ${percentage}%</h2>
+
+  <h2 class=${classPercentage}> ${percentage}%</h2>
   `;
   quizElement.innerHTML = quizEndHTML;
 };
@@ -100,8 +103,6 @@ function selectAnswer(e) {
     startButton.classList.remove('hide');
   }
 }
-
-
 
 function showProgress() {
   

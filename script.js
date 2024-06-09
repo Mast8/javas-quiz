@@ -33,12 +33,12 @@ function resetElement(element) {
 //show score
 function showScores() {
   let percentage = Math.round((score / questions.length) *100);
-  let classPercentage = percentage > 50 ? percentage.className = "good" : percentage.className = "bad" ; 
+  let classPercentage = percentage > 50 ?  "good" : "bad"; 
+  
   let quizEndHTML =
       `
   <h1>Quiz Completed</h1>
-  <h2 id='score'> Your scored: ${score} of ${questions.length}</h2>
-
+  <h2 id='score'> Your score: ${score} of ${questions.length}</h2>
   <h2 class=${classPercentage}> ${percentage}%</h2>
   `;
   quizElement.innerHTML = quizEndHTML;

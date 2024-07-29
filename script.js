@@ -158,7 +158,8 @@ const questions = [
     question: 'What is 4 * 2?',
     answers: [
       { text: '6', correct: false },
-      { text: '8', correct: true }
+      { text: '8', correct: true },
+      { text: '8.5', correct: false },
     ]
   },
   {
@@ -180,3 +181,6 @@ const questions = [
   }
 
 ]
+
+
+

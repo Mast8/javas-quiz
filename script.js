@@ -178,6 +178,15 @@ const questions = [
       { text: 'React', correct: false },
       { text: 'Unix', correct: false }
     ]
+  },
+  {
+    question: 'Which is  NOT a programming language?',
+    answers: [
+      { text: 'HTML', correct: true },
+      { text: 'Java', correct: false },
+      { text: 'Python', correct: false },
+      { text: 'Php', correct: false }
+    ]
   }
 
 ]

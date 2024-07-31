@@ -38,9 +38,10 @@ function showScores() {
   let quizEndHTML =
       `
   <h1>Quiz Completed</h1>
-  <h2 id='score'> Your score: ${score} of ${questions.length}</h2>
+  <h2 id='score'> Score: ${score} of ${questions.length}</h2>
   <h2 class=${classPercentage}> ${percentage}%</h2>
   `;
+  
   quizElement.innerHTML = quizEndHTML;
 };
 

@@ -108,11 +108,11 @@ body.wrong {
   display: none;
 }
 
-.good {
+.good , .Approved {
   color: green;
 }
 
-.bad {
+.bad , .Failed {
   color: red;
 }
 

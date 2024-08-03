@@ -41,13 +41,13 @@ function showScores() {
   }
   else {
     classPercentage =  "bad"; 
-    approved = "failed" ; 
+    approved = "Failed" ; 
   }
   
   let quizEndHTML =
       `
   <h1>Quiz Completed</h1>
-  <h2 id='score'> ${approved}: ${score} of ${questions.length}</h2>
+  <h2 id='score'> <p class="${approved}">${approved}: <p/>  ${score} of ${questions.length}</h2>
   <h2 class=${classPercentage}> ${percentage}%</h2>
   `;
   

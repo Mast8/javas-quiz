@@ -47,7 +47,7 @@ function showScores() {
   let quizEndHTML =
       `
   <h1>Quiz Completed</h1>
-  <h2 id='score'> <p class="${approved}">${approved}: <p/>  ${score} of ${questions.length}</h2>
+  <h2 id='score'> <p class="${approved}">${approved} <p/> Score: ${score} of ${questions.length}</h2>
   <h2 class=${classPercentage}> ${percentage}%</h2>
   `;
   
@@ -69,7 +69,7 @@ function showQuestion(question) {
   sortAnswers = randomSorting(question.answers);
   
   sortAnswers.forEach(answer => {
-  //question.answers.forEach(answer => {
+  
     const button = document.createElement('button');
     button.innerText = answer.text;
     button.classList.add('btn');
@@ -188,7 +188,7 @@ const questions = [
       { text: 'React', correct: false },
       { text: 'Unix', correct: false }
     ]
-  },
+  }/* ,
   {
     question: 'Which is  NOT a programming language?',
     answers: [
@@ -197,7 +197,7 @@ const questions = [
       { text: 'Python', correct: false },
       { text: 'Php', correct: false }
     ]
-  }
+  } */
 
 ]
 
